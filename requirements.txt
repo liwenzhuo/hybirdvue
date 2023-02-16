@@ -1,0 +1,15 @@
+asgiref==3.6.0
+certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+charset-normalizer==3.0.1
+crispy-bootstrap5==0.7
+Django==4.1.7
+django-crispy-forms==2.0
+django-webpack-loader==1.8.1
+idna==3.4
+psycopg2==2.9.5
+python-dotenv==0.21.1
+requests==2.28.2
+sqlparse==0.4.3
+tzdata==2022.7
+urllib3==1.26.14
+wincertstore==0.2

@@ -1,0 +1,28 @@
+{
+  "name": "hypertvueapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-bundle-tracker": "^1.4.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
