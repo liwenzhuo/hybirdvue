@@ -7,44 +7,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hybird Vue</title>
   <style>
-    #maincomponentapp{
+    body{
+      background:#efefef;
+      background-image: url("{% static 'images/a.jpg' %}");
+      background-size:cover;
+      overflow: hidden;
+    }
+    .mainapp{
       background: hsla(286, 73%, 60%, 0.3);
-      position: absolute;
-      left: 0px;
-      bottom: 0;
-      width: 100vw;
-      height: 100vh;
       display: flex;
+      position: absolute;
       justify-content: center;
       align-items: center;
       color: white;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      overflow-x: scroll;
+      left: 0px;
+      top: 70vh;
+      width: 100vw;
+      height: 30vh;
+      transform: translateY(30vh);
+      transition: transform 0.5s ease;
     }
-    .box {
-      margin: 30px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      width: 200px;
-      height: 200px;
+    .mainapp.showup {
+      transform: translateY(0);
+    }
+    .hori {
+      left: 1vw;
+      width: 98vw;
     }
     .bbbox{
-      margin: 30px;
       display: flex;
+      margin: 10px;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      width: 200px;
-      height: 200px;
       background: hsla(286, 73%, 60%, 0.5);
+      width: 200px;
       box-sizing: border-box;
+      height: 100%;
       border-radius: 5px;
       border: 1px solid hsla(286, 73%, 60%, 0.8);
     }
+    #btnontop{
+      position: absolute;
+      top: 65vh;
+      left: 10px;
+    }
   </style>
+  <script src="{% static 'js/vue@3.2.47.global.prod.min.js' %}"></script>
+  <script src="{% static 'js/vue-horizontal@1.0.2.umd.js' %}"></script>
 </head>
 <body>
   <main>
@@ -56,10 +66,10 @@
 {% render_bundle 'tvueapp' %}
 
 <script type="module">
-  import {createApp} from "{% static 'js/vue@3.2.47.esm-browser.js' %}"
-  const app = createApp(tvueapp.MainCompunent)
-  tvueapp.registComponents(app)
-  app.mount('#maincomponentapp')
+  const mainapp = Vue.createApp(tvueapp.MainCompunent)
+  tvueapp.registComponents(mainapp)
+  mainapp.mount('#maincomponentapp')
+  window.mainapp = mainapp
 </script>
 
 </body>

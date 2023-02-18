@@ -1,9 +1,10 @@
 
 import {tname,component1} from "./component.js"
 
-function registComponents(app)
+function registComponents(mainapp)
 {
-  app.component(tname, component1)
+  mainapp.component('VueHorizontal',VueHorizontal)
+  mainapp.component(tname, component1)
 }
 
 const MainCompunent = {
@@ -11,7 +12,7 @@ const MainCompunent = {
       return {
         toggle:true,
         someData: 'passtoprop',
-        items: [...Array(5).keys()].map((i) => {
+        items: [...Array(15).keys()].map((i) => {
           return {i, title: `v-for: ${i}`, content: `🚀 Paragraph ${i}`};
         }),
         images:[]
@@ -50,17 +51,23 @@ const MainCompunent = {
     },
     template://html
     `
-    <div v-for="img in images" class="bbbox">
-      <img :src="img.url" :alt="img.name">
-    </div>
-    <button @click="toggle=!toggle">clickme</button>
-    <${tname} :class="toggle?'bbbox':''" :prop="someData"/>
+    <button id="btnontop" @click="toggle=!toggle">abc</button>
+    <div class="mainapp" :class="toggle?'showup':''">
+      <div  class="hori" >
+        <vue-horizontal responsive>
+          <div v-for="img in images" class="bbbox">
+            <img :src="img.url" :alt="img.name">
+          </div>
 
-    <!--
-    <section v-for="item in items" :key="item.i">
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.content }}</p>
-    </section>-->
+          <${tname} :class="toggle?'bbbox':''" :prop="someData"/>
+
+          <section class="bbbox" v-for="item in items" :key="item.i">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.content }}</p>
+          </section>
+        </vue-horizontal>
+      </div>
+    </div>
     `
 }
 
